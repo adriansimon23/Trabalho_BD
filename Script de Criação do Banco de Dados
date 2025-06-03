@@ -1,0 +1,84 @@
+CREATE TABLE localizacion_estoque (
+    id_localizacion INT PRIMARY KEY,
+    nombre VARCHAR(100),
+    telefone VARCHAR(20),
+    descripcion TEXT
+);
+
+CREATE TABLE requisicion_compra (
+    id_requisicion INT PRIMARY KEY,
+    id_localizacion INT,
+    fecha_emision DATE,
+    estado VARCHAR(50),
+    FOREIGN KEY (id_localizacion) REFERENCES localizacion_estoque(id_localizacion)
+);
+
+CREATE TABLE requisicion (
+    id_requisicion INT PRIMARY KEY,
+    fecha VARCHAR(100),
+    informat TEXT,
+    email VARCHAR(100),
+    FOREIGN KEY (id_requisicion) REFERENCES requisicion_compra(id_requisicion)
+);
+
+CREATE TABLE fornecedor (
+    id_fomecedor INT PRIMARY KEY,
+    nombre VARCHAR(100),
+    teléfono VARCHAR(20),
+    cantidad INT,
+    produvunitario DECIMAL(8,2)
+);
+
+CREATE TABLE categoria (
+    id_categoria INT PRIMARY KEY,
+    nombre VARCHAR(100),
+    cantidad INT
+);
+
+CREATE TABLE producto (
+    id_producto INT PRIMARY KEY,
+    pmmbre VARCHAR(100),
+    precio DECIMAL(32,2),
+    id_fornecedor INT,
+    id_categoria INT,
+    FOREIGN KEY (id_fornecedor) REFERENCES fornecedor(id_fomecedor),
+    FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria)
+);
+
+CREATE TABLE cliente (
+    id_cliente INT PRIMARY KEY,
+    nombre VARCHAR(100),
+    telefono VARCHAR(20),
+    email VARCHAR(100),
+    direccion VARCHAR(100)
+);
+
+CREATE TABLE pedido (
+    id_pedido INT PRIMARY KEY,
+    id_cliente INT,
+    fecha DATE,
+    estado VARCHAR(50),
+    FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)
+);
+
+CREATE TABLE item_pedido (
+    id_item_pedido INT PRIMARY KEY,
+    id_pedido INT,
+    id_producto INT,
+    cantidad INT,
+    precio_unitario DECIMAL(8,2),
+    FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido),
+    FOREIGN KEY (id_producto) REFERENCES producto(id_producto)
+);
+
+CREATE TYPE tipo_movimiento AS ENUM ('ENTRADA', 'SAIDA');
+
+CREATE TABLE movimiento_estoque (
+    id_movimiento INT PRIMARY KEY,
+    fecha DATE,
+    tipo tipo_movimiento,
+    cantidad INT,
+    id_estoque INT,
+    FOREIGN KEY (id_estoque) REFERENCES localizacion_estoque(id_localizacion)
+);
+**
