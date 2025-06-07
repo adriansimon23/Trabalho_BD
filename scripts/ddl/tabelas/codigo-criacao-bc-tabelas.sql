@@ -1,3 +1,5 @@
+
+--PARA RODAR, ABRA (UMA NOVA CONSULTA)NEW QUERY  - E COLOQUE O CODIGO.!
 /*==============================================================*/
 /* Tabela 1: categoria                                           */
 /*==============================================================*/
@@ -105,7 +107,7 @@ GO
 
 
 /*==============================================================*/
-/* Tabela 9: movimentação do estoque                                          */
+/* Tabela 9: movimenta??o do estoque                                          */
 /*==============================================================*/
 
 CREATE TABLE movimento_estoque (
@@ -119,7 +121,7 @@ CREATE TABLE movimento_estoque (
 GO
 
 /*==============================================================*/
-/* Tabela 10: requisição da compra                                         */
+/* Tabela 10: requisi??o da compra                                         */
 /*==============================================================*/
 
 CREATE TABLE requisicao_compra (
@@ -134,7 +136,7 @@ GO
 
 
 /*==============================================================*/
-/* Tabela 11: o item da requisição                                         */
+/* Tabela 11: o item da requisi??o                                         */
 /*==============================================================*/
 
 CREATE TABLE item_requisicao (
@@ -148,7 +150,7 @@ GO
 
 
 
---  (descrições)
+--  (descri??es)
 EXEC sp_addextendedproperty
 @name = N'Table_Description',
 @value = 'Cada produto pertence a uma categoria e a um fornecedor',
@@ -158,7 +160,7 @@ GO
 
 EXEC sp_addextendedproperty
 @name = N'Table_Description',
-@value = 'Indica a quantidade atual de um produto em uma localização',
+@value = 'Indica a quantidade atual de um produto em uma localiza??o',
 @level0type = N'Schema', @level0name = 'dbo',
 @level1type = N'Table', @level1name = 'estoque';
 GO
@@ -179,7 +181,7 @@ GO
 
 EXEC sp_addextendedproperty
 @name = N'Table_Description',
-@value = 'Registra entrada ou saída de um produto',
+@value = 'Registra entrada ou sa?da de um produto',
 @level0type = N'Schema', @level0name = 'dbo',
 @level1type = N'Table', @level1name = 'movimento_estoque';
 GO
@@ -193,7 +195,7 @@ GO
 
 EXEC sp_addextendedproperty
 @name = N'Table_Description',
-@value = 'Produtos solicitados em uma requisição de compra',
+@value = 'Produtos solicitados em uma requisi??o de compra',
 @level0type = N'Schema', @level0name = 'dbo',
 @level1type = N'Table', @level1name = 'item_requisicao';
 GO
