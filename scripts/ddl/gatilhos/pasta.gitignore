@@ -1,0 +1,27 @@
+-- Criação da trigger chamada 'trg_prevent_delete_produto' na tabela 'produto'
+CREATE TRIGGER trg_prevent_delete_produto
+ON produto
+INSTEAD OF DELETE -- A trigger será executada no lugar do comando DELETE
+AS
+BEGIN
+    -- Verifica se o produto que está sendo deletado possui movimentações de estoque associadas
+    IF EXISTS (
+        SELECT 1
+        FROM movimento_estoque me
+        INNER JOIN deleted d ON me.produto_id = d.id_produto -- 'deleted' contém os registros que seriam deletados
+    )
+    BEGIN
+        -- Caso o produto tenha movimentações no estoque, não permite a exclusão
+        PRINT 'Erro: Não é permitido excluir produtos com movimentações de estoque.'; -- Mensagem informativa no console
+        RAISERROR ('Não é permitido excluir produtos com movimentações de estoque.', 16, 1); -- Lança um erro para a aplicação
+        RETURN; -- Encerra a trigger sem realizar o DELETE
+    END
+    ELSE
+    BEGIN
+        -- Caso o produto não tenha movimentações no estoque, permite a exclusão
+        DELETE FROM produto
+        WHERE id_produto IN (SELECT id_produto FROM deleted); -- Executa o DELETE real dos produtos selecionados
+        PRINT 'Produto deletado com sucesso.'; -- Mensagem de sucesso no console
+    END
+END
+GO -- Finaliza o bloco da trigger
