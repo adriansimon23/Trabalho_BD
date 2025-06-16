@@ -1,4 +1,4 @@
--- Criação da trigger chamada 'trg_prevent_delete_produto' na tabela 'produto'
+
 CREATE TRIGGER trg_prevent_delete_produto
 ON produto
 INSTEAD OF DELETE -- A trigger será executada no lugar do comando DELETE
