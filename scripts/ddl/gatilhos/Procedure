@@ -1,0 +1,34 @@
+-- Criando a stored procedure para atualizar o preço de um produto
+CREATE PROCEDURE sp_AtualizarPrecoProduto
+  @id_produto INT,              -- Parâmetro: ID do produto que será atualizado
+  @novo_preco DECIMAL(10, 2)    -- Parâmetro: Novo preço a ser definido para o produto
+AS
+BEGIN
+  -- Evita mensagens extras de contagem de linhas afetadas para o cliente
+  SET NOCOUNT ON;
+
+  BEGIN TRY
+    -- Atualiza o preço do produto na tabela 'produto' baseado no ID
+    UPDATE produto
+    SET preco = @novo_preco
+    WHERE id_produto = @id_produto;
+
+    -- Verifica se algum registro foi afetado
+    IF @@ROWCOUNT = 0
+    BEGIN
+      PRINT 'Produto não encontrado.';  -- Caso não tenha encontrado o produto para atualizar
+    END
+    ELSE
+    BEGIN
+      PRINT 'Preço do produto atualizado com sucesso.';  -- Caso atualização tenha sido bem sucedida
+    END
+  END TRY
+  BEGIN CATCH
+    -- Caso ocorra algum erro, exibe a mensagem de erro
+    PRINT 'Erro ao atualizar preço do produto:';
+    PRINT ERROR_MESSAGE();
+  END CATCH
+END
+GO
+-- Exemplo: Atualizar o preço do produto com id 3 para R$ 99,90
+EXEC sp_AtualizarPrecoProduto @id_produto = 3, @novo_preco = 99.90;
