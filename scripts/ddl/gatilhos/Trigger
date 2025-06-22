@@ -25,3 +25,6 @@ BEGIN
     END
 END
 GO -- Finaliza o bloco da trigger
+
+-- Execução 
+DELETE FROM produto WHERE id_produto = 1;
