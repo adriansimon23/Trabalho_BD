@@ -1,5 +1,4 @@
 Projeto sistema de E-commerce - GRUPO E
-## (  LINKS PARA ARRUMAR !)
 
 Este projeto consiste na criação de um modelo físico de um banco de dados para um sistema XYZ.
 O projeto foi desenvolvido em C# .NET, criando um CRUD para cadastro dos itens xyz, onde a aplicacao faz conexão com o banco de dados através de uma biblioteca chamada entity framework e realiza operações de adição, aualização e deleção dos dados, usando todos os conceitos e dinâmicas práticas de SQL desenvolvidas em aula.
@@ -20,7 +19,7 @@ Arquivo fonte: [Modelo Fisico](https://github.com/adriansimon23/Trabalho_BD/tree
 ![image](https://raw.githubusercontent.com/adriansimon23/Trabalho_BD/refs/heads/main/modelo_fisico/modelo_fisco_banco_de_dados_estoque_e-commerce.png)
 
 ### Dicionário de Dados
-As informações sobre as tabelas e índices foram documentados na planilha [template1.xlsx](dicionario_dados/template1.xlsx).
+As informações sobre as tabelas e índices foram documentados na planilha [BANCO ECOMERCE-V-2.0](https://github.com/adriansimon23/Trabalho_BD/tree/main/dicionario_dados).
 
 ### Scripts SQL
 Para este projeto foi utilizado o banco de dados [Azure SQL](https://azure.microsoft.com/pt-br/products/azure-sql/database) <br>
@@ -33,6 +32,8 @@ Abaixo, segue os scripts SQL separados por tipo:
 + [Procedimentos armazenados](scripts/ddl/procedimentos-armazenados)
 + [Funções](scripts/ddl/funcoes)
 + [DML](scripts/dml)
++ pegue a maior versão InsereDadosBanco-v_3.0_.sql
++ 
 
 ### Código Fonte do CRUD
 - Linguagem de Programação C# .NET.<br>
