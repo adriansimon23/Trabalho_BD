@@ -52,4 +52,4 @@ docker run xyz
 [Codigo Fonte](crud/)
 
 ### Relatório Final
-O relatório final está disponível no arquivo [relatorio-final/template1.docx]([relatorio/template1.docx](https://github.com/adriansimon23/Trabalho_BD/tree/main/relatorio-final)).
+O relatório final está disponível no arquivo [relatorio-final](https://github.com/adriansimon23/Trabalho_BD/tree/main/relatorio-final).
