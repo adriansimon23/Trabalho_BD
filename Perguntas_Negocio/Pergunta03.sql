@@ -1,12 +1,20 @@
-DECLARE @DataLimite DATE = '2025-06-19';  -- Defina a data limite desejada
-
 SELECT 
-    p.id_produto AS ProdutoID,
     p.nome AS NomeProduto,
-    p.preco AS PrecoProduto,
-    COUNT(m.id_movimento) AS TotalMovimentacoes
-FROM produto p
-INNER JOIN movimento_estoque m ON p.id_produto = m.produto_id
-WHERE m.data_movimento <= @DataLimite  -- Considera movimentações até a data desejada
-GROUP BY p.id_produto, p.nome, p.preco
-ORDER BY p.preco DESC;  -- Ordena pelo preço do produto (maior para menor)
+    c.nome AS Categoria,
+    me.tipo_movimento,
+    me.quantidade,
+    me.data_movimento,
+    p.preco AS PrecoProduto
+FROM movimento_estoque me
+INNER JOIN produto p ON me.produto_id = p.id_produto
+INNER JOIN categoria c ON p.categoria_id = c.id_categoria
+WHERE 
+    -- 1º Nível de Filtro: Tipo de movimentação
+    me.tipo_movimento = 'SAIDA'
+
+    -- 2º Nível de Filtro: Categoria do produto
+    AND c.nome = 'Eletrônicos'
+
+    -- 3º Nível de Filtro: Preço mínimo do produto
+    AND p.preco > 1000.00
+ORDER BY me.data_movimento DESC;
