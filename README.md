@@ -51,7 +51,7 @@ Este projeto implementa um CRUD (Create, Read, Update, Delete) utilizando a ling
   - ou `PDO` com driver `sqlsrv` habilitado  
 
 ## 📁 Estrutura Básica do Projeto CRUD
-
+```
 projeto_final_ml/
 ├── config/
 │   └── database.php                # Configurações para comunicação com banco de dados
@@ -65,7 +65,7 @@ projeto_final_ml/
 │   └── read.php                    # código referente ao read, quando feita a requisição do read, ele lê o banco de dados e com o codigo em php são exibidos os dados da tabela "movimentação de estoque" na pagina web.
 │   └── style.css                   # Estilo em codigo .css global (usado em todas as páginas)
 │   └── update.php                  # código referente a update (atualização) de uma "movimentação de estoque
-   
+```
 
 [Codigo Fonte](crud/)
 
