@@ -31,23 +31,40 @@ Abaixo, segue os scripts SQL separados por tipo:
 + [Gatilhos](scripts/ddl/gatilhos)
 + [Procedimentos armazenados](scripts/ddl/procedimentos-armazenados)
 + [Funções](scripts/ddl/funcoes)
-+ [DML](scripts/dml)
-+ pegue a maior versão InsereDadosBanco-v_3.0_.sql
++ [DML](scripts/dml) #pegue a maior versão InsereDadosBanco-v_3.0_.sql
 + 
 
-### Código Fonte do CRUD
-- Linguagem de Programação C# .NET.<br>
-- Framework .NET 4.6
-- Projeto Windows Forms
-- Biblioteca Entity Framework para SQL Server (nativo)
+# Código Fonte do CRUD - PHP + SQL Server
 
-### Passos para execução do CRUD
+Este projeto implementa um CRUD (Create, Read, Update, Delete) utilizando a linguagem PHP com banco de dados SQL Server, acesssado via `PDO` com driver `pdo_sqlsrv`. A interface é feita com tecnologias web (HTML, CSS e JavaScript).
 
-1. Criar banco de dados pelo docker.
-```
-docker run xyz
-```
-2. ...
+---
+
+## 🛠 Tecnologias Utilizadas
+
+- **Linguagem de Programação:** PHP  
+- **Banco de Dados:** SQL Server (via driver `sqlsrv` ou `PDO`)  
+- **Interface Web:** HTML + CSS + JavaScript  
+- **Servidor Web:** Apache ou Nginx com suporte a PHP  
+- **Conexão com o Banco:**  
+  - `sqlsrv_connect()`  
+  - ou `PDO` com driver `sqlsrv` habilitado  
+
+## 📁 Estrutura Básica do Projeto CRUD
+
+projeto_final_ml/
+├── config/
+│   └── database.php                # Configurações para comunicação com banco de dados
+├── includes/                      
+│   └── footer.php                  # Cabeçalho global (usado em todas as páginas)
+│   └── header.php                  # Rodapé global (usado em todas as páginas)
+├── includes/                      
+│   └── create.php                   # código referente a inclusão de uma "movimentação de estoque"                
+│   └── delete.php                  # código referente ao delete de uma "movimentação de estoque"
+│   └── index.php                  # página principal do CRUD de "movimentação de estoque"
+│   └── read.php                    # código referente ao read, quando feita a requisição do read, ele lê o banco de dados e com o codigo em php são exibidos os dados da tabela "movimentação de estoque" na pagina web.
+│   └── style.css                   # Estilo em codigo .css global (usado em todas as páginas)
+│   └── update.php                  # código referente a update (atualização) de uma "movimentação de estoque
    
 
 [Codigo Fonte](crud/)
