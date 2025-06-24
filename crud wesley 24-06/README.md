@@ -45,6 +45,7 @@ Antes de começar, certifique-se de ter o seguinte software instalado e configur
 colar a pasta crud_estoque dentro do diretorio   ( C:\xampp\htdocs )
 
 criar um servidor com o mesmo nome dentro do xampp e upar os codigos lá e não no sql server
+tera que transcrever a sintaxe
 
 [Scripts para criar as tabelas](scripts/ddl/tabelas)
 
