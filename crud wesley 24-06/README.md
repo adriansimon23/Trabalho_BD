@@ -1,6 +1,6 @@
 # Projeto Final Banco de Dados 2 - sistema de Estoque para E-commerce - GRUPO E
 
-crud wesley video [yotube](https://youtu.be/Wp5xC3DJA6A)
+crud wesley video [youtube](https://youtu.be/Wp5xC3DJA6A)<a>
 Este projeto consiste na criação de um modelo físico de um banco de dados para um sistema de estoque para E-commerce.
 O CRUD foi desenvolvido em liguagem `.php` com servidor `Apache`, criando um CRUD para cadastro dos itens produtos, onde a aplicacao faz conexão com o banco de dados através via `PDO` com driver `sqlsrv` habilitado e realiza operações de adição (Create/insert), leitura(read), , aualização(Update) e deleção(Detet) dos dados, usando todos os conceitos e dinâmicas práticas de SQL desenvolvidas nas atividades de sala de aula.
 
